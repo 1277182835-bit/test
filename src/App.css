@@ -1,0 +1,349 @@
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --today-color: #6366f1;
+  --tomorrow-color: #0ea5e9;
+  --yesterday-color: #f59e0b;
+  --other-color: #64748b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  min-height: 100vh;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+/* Input */
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.todo-input-field {
+  flex: 1;
+  min-width: 150px;
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--card-bg);
+}
+
+.todo-input-field:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.todo-input-field::placeholder {
+  color: var(--text-secondary);
+}
+
+.todo-date-picker {
+  padding: 14px 12px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  background: var(--card-bg);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.todo-date-picker:focus {
+  border-color: var(--primary);
+}
+
+.todo-add-btn {
+  padding: 14px 24px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.todo-add-btn:hover {
+  background: var(--primary-hover);
+}
+
+.todo-add-btn:active {
+  transform: scale(0.97);
+}
+
+/* Stats */
+.todo-stats {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.stats-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stats-label {
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.stats-label.today {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--today-color);
+}
+
+.stats-label.yesterday {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--yesterday-color);
+}
+
+.stats-num {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.stats-separator {
+  color: var(--border);
+}
+
+/* List */
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todo-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.todo-group-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.todo-group-title.today {
+  color: var(--today-color);
+}
+
+.todo-group-title.tomorrow {
+  color: var(--tomorrow-color);
+}
+
+.todo-group-title.yesterday {
+  color: var(--yesterday-color);
+}
+
+.todo-group-title.other {
+  color: var(--other-color);
+}
+
+.todo-group-count {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--border);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.todo-group-list {
+  list-style: none;
+}
+
+.todo-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-secondary);
+}
+
+.todo-empty p:first-child {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.todo-empty-hint {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.todo-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.todo-item.completed {
+  opacity: 0.7;
+}
+
+/* Checkbox */
+.todo-checkbox-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.todo-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.todo-checkmark {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-checkbox:checked + .todo-checkmark {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.todo-checkbox:checked + .todo-checkmark::after {
+  content: '\2713';
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.todo-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.todo-delete-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.todo-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+/* Scrollbar */
+.todo-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.todo-list-container::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.todo-list-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .todo-input {
+    flex-direction: column;
+  }
+
+  .todo-date-picker {
+    width: 100%;
+  }
+
+  .todo-add-btn {
+    width: 100%;
+  }
+}
